@@ -1,11 +1,9 @@
-print("CALCOLO SISTEMI 2x2 E 3x3 CON IL METODO DI CRAMER")
+print("CALCOLO SISTEMI CON IL METODO DI CRAMER")
 print()
-print("metodo: (a/b)")
-print("2x2 (a)")
-print("3x3 (b)")
+print("numero di incognite:")
 m = input()
 
-if m == "a":
+if m == "2":
 	while True:
 		#valori dell'eq
 		cx1 = int(input("inserire coeff di x (prima eq.)"))
@@ -30,13 +28,21 @@ if m == "a":
 
 	#calcolo incognite e stampa risultato
 	print()
+	print("--determinanti--")
+	print("  D =", d)
+	print("  Dx =", dx)
+	print("  Dy =", dy)	
+	print()
 	print("--risultato--")
-	x = dx/d
-	print("X =", x)
-	y = dy/d
-	print("Y =", y)
+	if d == 0:
+		print("IMPOSSIBILE (D = 0)")
+	else:	
+		x = dx/d
+		print("X =", x)
+		y = dy/d
+		print("Y =", y)
 
-else:
+elif m == "3":
 	while True:
 		#valori dell'eq
 		cx1 = int(input("inserire coeff di x (prima eq.)"))
@@ -63,20 +69,31 @@ else:
 			break
 
 	#calcolo determinanti
-	dx = ((tn1*cy2*cz3) + (cy1*cz2*tn3) + (cz1*tn2*cy3)) - ((tn3*cy2*tn1) + (cy3*cz2*tn1) + (cz3*tn2*cy1))
+	dx = ((tn1*cy2*cz3) + (cy1*cz2*tn3) + (cz1*tn2*cy3)) - ((tn3*cy2*cz1) + (cy3*cz2*tn1) + (cz3*tn2*cy1))
 	dy = ((cx1*tn2*cz3) + (tn1*cz2*cx3) + (cz1*cx2*tn3)) - ((cx3*tn2*cz1) + (tn3*cz2*cx1) + (cz3*cx2*tn1))
 	dz = ((cx1*cy2*tn3) + (cy1*tn2*cx3) + (tn1*cx2*cy3)) - ((cx3*cy2*tn1) + (cy3*tn2*cx1) + (tn3*cx2*cy1))
 	d = ((cx1*cy2*cz3) + (cy1*cz2*cx3) + (cz1*cx2*cy3)) - ((cx3*cy2*cz1) + (cy3*cz2*cx1) + (cz3*cx2*cy1))
 
 	#calcolo incognite e stampa risultato
 	print()
+	print("--determinanti--")
+	print("D =", d)
+	print("Dx =", dx)
+	print("Dy =", dy)
+	print("Dz =", dz)
+	print()
 	print("--risultato--")
-	x = dx/d
-	print("X =", x)
-	y = dy/d
-	print("Y =", y)
-	z = dz/d
-	print("Z =", z)
+	if d == 0:
+		print("IMPOSSIBILE (D = 0)")
+	else:	
+		x = dx/d
+		print("X =", x)
+		y = dy/d
+		print("Y =", y)
+		z = dz/d
+		print("Z =", z)
+
+
 
 
 
